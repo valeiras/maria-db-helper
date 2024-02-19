@@ -2,11 +2,15 @@
   "name": "maria-db-helper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "MariaDBHelper.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mariadb": "^3.2.3"
+  }
 }
