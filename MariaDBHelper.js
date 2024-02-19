@@ -4,16 +4,8 @@ class MariaDBHelper {
   #connection;
   #pool;
 
-  constructor() {
-    this.#pool = createPool({
-      host: process.env.HOST,
-      port: process.env.PORT,
-      user: process.env.USER,
-      password: process.env.PASSWORD,
-      database: process.env.DB_NAME,
-      connectionLimit: 5,
-      trace: true,
-    });
+  constructor(poolParams) {
+    this.#pool = createPool(poolParams);
   }
 
   async getConnection() {
