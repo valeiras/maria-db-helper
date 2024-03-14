@@ -1,25 +1,20 @@
+// MariaDBHelper.js
 import { createPool } from "mariadb";
-
-class MariaDBHelper {
+var MariaDBHelper = class {
   #connection;
   #pool;
-
   constructor(poolParams) {
     this.#pool = createPool(poolParams);
   }
-
   async getConnection() {
     this.#connection = await this.#pool.getConnection();
   }
-
   async releaseConnection() {
     return this.#connection.release();
   }
-
   async endPool() {
     return this.#pool.end();
   }
-
   async executeQuery(query, values = []) {
     try {
       if (!this.#connection)
@@ -32,7 +27,6 @@ class MariaDBHelper {
       return "err";
     }
   }
-
   async executeBatch(query, values) {
     try {
       if (!this.#connection)
@@ -45,6 +39,12 @@ class MariaDBHelper {
       return "err";
     }
   }
-}
+};
+var MariaDBHelper_default = MariaDBHelper;
 
-export default MariaDBHelper;
+// index.ts
+var maria_db_helper_default = MariaDBHelper_default;
+export {
+  maria_db_helper_default as default
+};
+//# sourceMappingURL=index.js.map

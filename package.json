@@ -1,16 +1,29 @@
 {
-  "name": "maria-db-helper",
+  "name": "@valeiras/maria-db-helper",
   "version": "1.0.0",
   "description": "",
-  "main": "MariaDBHelper.js",
-  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup",
+    "clean": "if exist dist ( rd /S /Q dist)",
+    "updateLink": "npm run clean && tsup && npm rm pdf-kit-extended -g && npm link",
+    "test": "jest"
   },
+  "type": "module",
   "keywords": [],
-  "author": "",
+  "author": "DRValeiras",
   "license": "ISC",
   "dependencies": {
     "mariadb": "^3.2.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
   }
 }
